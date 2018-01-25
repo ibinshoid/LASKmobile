@@ -1,0 +1,206 @@
+!================================================
+!===   Start of GraphicConstants.bas  v1.16   ===
+!================================================
+
+!===   G L O B A L   C O N S T A N T S
+!===   For use by Include and Calling Programs
+
+!===   O R I E N T A T I O N
+bcLANDSCAPE=0
+bcPORTRAIT=1
+!===   S T A T U S   B A R
+bcSHOWSTATUSBAR=1
+bcHIDESTATUSBAR=0
+!===   A L P H A   C O N S T A N T S
+bcOPAQUE=255
+bcSEMIOPAQUE=128
+bcTRANSPARENT=0
+!===   F I L L
+bcFILL=1
+bcNOFILL=0
+!===   C O L O U R S
+bcBLACK=1
+bcBLUE=2
+bcGREEN=3
+bcCYAN=4
+bcRED=5
+bcMAGENTA=6
+bcYELLOW=7
+bcGRAY=8
+bcLGRAY=9
+bcLBLUE=10
+bcLGREEN=11
+bcLCYAN=12
+bcLRED=13
+bcLMAGENTA=14
+bcLYELLOW=15
+bcWHITE=16
+bcSYST1=17
+bcSYST2=18
+bcSYST3=19
+!
+bcRGBBLACK=0
+bcRGBBLUE=16711680     % 8388608
+bcRGBGREEN=32768       % 32768
+bcRGBCYAN=12632064     % 16776960     % 8421376
+bcRGBRED=255           % 128
+bcRGBMAGENTA=16711935  % 8388736
+bcRGBYELLOW=49344      % 65535      % 32896
+bcRGBGRAY=8421504      % 8421504
+bcRGBLGRAY=12632256    % 12632256
+bcRGBLBLUE=16761024    % 16711680
+bcRGBLGREEN=12648384   % 65280
+bcRGBLCYAN=16777088    % 16777152    % 16776960
+bcRGBLRED=12632319     % 4194559
+bcRGBLMAGENTA=16761087 % 16711935
+bcRGBLYELLOW=12648447  % 65535
+bcRGBWHITE=16777215
+bcRGBSYST1=16053492
+bcRGBSYST2=14737632
+bcRGBSYST3=13684944
+! To add a new colour, simply add a colour constant and RGB definition.
+! Adjust RGB values if existing colour is not quite right.
+array.load bcCOLOR[],bcBLACK,bcBLUE,bcGREEN,bcCYAN~
+    bcRED,bcMAGENTA,bcYELLOW,bcGRAY,bcLGRAY,bcLBLUE~
+    bcLGREEN,bcLCYAN,bcLRED,bcLMAGENTA,bcLYELLOW,bcWHITE,bcSYST1,bcSYST2,bcSYST3
+array.load bcRGBCOLOR[],bcRGBBLACK,bcRGBBLUE,bcRGBGREEN~
+    bcRGBCYAN,bcRGBRED,bcRGBMAGENTA,bcRGBYELLOW~
+    bcRGBGRAY,bcRGBLGRAY,bcRGBLBLUE,bcRGBLGREEN,bcRGBLCYAN~
+    bcRGBLRED,bcRGBLMAGENTA,bcRGBLYELLOW,bcRGBWHITE,bcRGBSYST1,bcRGBSYST2,bcRGBSYST3
+!===   C O N T R O L S
+bcFRMDISPLAY=1
+bcFRMSTRING=2
+bcFRMTEXT=3
+bcFRMSELECT=4
+bcFRMDATE=5
+bcFRMBUTTON=6
+bcFRMPICTURE=7
+bcFRMLABEL=8
+bcFRMLISTBOX=9
+bcFRMCHECKBOX=10
+bcFRMOPTBUTTON=11
+bcFRMSPINBUTTON=12
+bcFRMFRAME=13
+bcFRMSHAPE=14
+bcFRMCOMBOBOX=15
+bcFRMTIME=16
+bcFRMCHKBUTTON=17
+!===   S T Y L E S
+bcCAPFONTDEFAULT$="1"
+bcCAPFONTMONO$="2"
+bcCAPFONTSANSERIF$="3"
+bcCAPFONTSERIF$="4"
+bcDATFONTDEFAULT$="5"
+bcDATFONTMONO$="6"
+bcDATFONTSANSERIF$="7"
+bcDATFONTSERIF$="8"
+bc3DBORDER$="9"
+bcSPINLR$="A"
+bcFLAT$="a"
+bcDATBOLD$="B"
+bcCAPBOLD$="b"  
+bcALIGNCENTRE$="C"
+bcALIGNDATCENTRE$="c"
+bcDISABLED$="D"
+bcCTRLCENTRE$="d"
+bcEDITABLE$="E"
+bcFILEDIALOG$="F"
+bcSHAPEFILL$="f"
+bcGRAPHIC$="G"
+bcHIDEGRID$="g"
+bcHIDE$="H"
+bcHHMMONLY$="h"
+bcDATITALIC$="I"
+bcCAPITALIC$="i"
+bcBANDING$="J"
+bcCOLSORT$="j"
+bcNOBACK$="K" 
+bcNOTCLICKABLE$="k"
+bcALIGNLEFT$="L"
+bcALIGNDATLEFT$="l"
+bcMULTSEL$="M"
+bcCTRLLEFT$="m"
+bcALLOWNEW$="N"
+bcNOSORT$="n"
+bcLISTONLY$="O"
+bcOUTLINE$="o"
+bcPICSIZE$="P"
+bcCHECKRIGHT$="p"
+bcQUICKNAV$="Q"
+bcPICCROP$="q"
+bcALIGNRIGHT$="R"
+bcALIGNDATRIGHT$="r"
+bcPICSCROLL$="S"
+bcCTRLRIGHT$="s"
+bcNOHEADBOX$="T"
+bcNOTITLEEDIT$="t"
+bcDATUNDERLINE$="U"
+bcCAPUNDERLINE$="u"
+bcNOSCROLL$="V"
+bcLISTVIEW$="v"
+bcMENUBTN$="W"
+bcMENULIST$="w"
+bcCHECKBOX$="X"
+bcLISTBOXRIGHT$="x"
+bcSPINDN$="Y"
+bcSPINREV$="y"
+bcLISTBOXLAST$="z"
+bcFADEBACK$="+"
+bcNOBORDER$="-"
+bcDATABORDER$=">"
+bcMULTILINE$="="
+bcICON$="*"
+bcBLAKBACK$="#"
+bcBEVEL$="("
+bcROUND$=")"
+bcPICROTATE$="@"
+!===   M S G B O X   O P T I O N S
+bcOKONLY$="o"
+bcYESNO$="y"
+bcYESNOCANCEL$="n"
+bcCUSTOM$="m"
+bcINFORMATION$="i"
+bcQUESTION$="q"
+bcEXCLAMATION$="e"
+bcCRITICAL$="c"
+bcCLRINFO$="I"
+bcCLRQUEST$="Q"
+bcCLRERR$="E"
+bcCLRCRIT$="C"
+!===   S O U N D   O P T I O N S
+bcSOUNDON$="Y"
+bcSOUNDOFF$="N"
+!===   C T R L   M E S S A G E S
+bcMSGMENUCTRL=1082
+bcMSGMENUSET=1582
+bcMSGSETLIST=2000
+bcMSGMULTIUPDT=3000
+bcMSGCHECKCLICK=4000
+bcMSGCOLSORT=5000
+bcMSGPICSCROLL=6000
+!===   V A R I O U S
+bcRECBREAK$=CHR$(174) % Registered Sign
+bcCOLBREAK$=CHR$(169) % Copyright Symbol
+bcFLDBREAK$=CHR$(183) % Middle Top
+bcCRLF$=CHR$(13)+CHR$(10)
+bcLF$=CHR$(10)
+bcSTRCRLF$="^^"
+bcDBLQUOTE$=CHR$(34)
+bcBACKSLASH$=CHR$(92)
+bcPOUNDSIGN$=CHR$(163)
+bcNOTSIGN$=CHR$(172)
+bcBLANK$="--Blank--"
+!===   V A R I A B L E   D E F I N I T I O N S 
+FrmScale=1
+DateSize=40
+Scrollbar=60
+MsgBoxFontSize=40
+picPath$=""
+Period=0
+DataObj=0
+XCoord=0
+YCoord=0
+ 
+!====================================
+!===   End GraphicConstants.bas   ===
+!====================================
