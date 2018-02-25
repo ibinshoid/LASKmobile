@@ -48,7 +48,7 @@ This file is part of BASIC! for Android
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <!--<uses-permission android:name="android.permission.RECORD_AUDIO" />-->
-    <!--<uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!--<uses-permission android:name="android.permission.SEND_SMS" />-->
     <!--<uses-permission android:name="android.permission.CALL_PHONE" />-->
     <!--<uses-permission android:name="android.permission.READ_SMS" />-->

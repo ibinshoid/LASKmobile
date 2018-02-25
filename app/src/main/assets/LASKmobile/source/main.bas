@@ -24,17 +24,6 @@ INCLUDE aktioninfo_duengung.bas
 INCLUDE aktioninfo_bodenbearbeitung.bas
 INCLUDE aktioninfo_psm.bas
 
-FN.DEF _$(tr$)
-	FN.IMPORT i18n
-	ntr$ = tr$
-	
-	BUNDLE.CONTAIN i18n, tr$, isin
-	if (isin <> 0) then
-		BUNDLE.GET i18n, tr$, ntr$
-	endif
-	FN.RTN ntr$
-FN.END
-
 goto weiter10
 aktionBauen:
 	dim aktionInfo$[20]

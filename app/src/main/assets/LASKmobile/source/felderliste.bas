@@ -20,7 +20,7 @@ felderListe:
     feldFilter = AddControl(bcFRMSELECT,"Select", bcWHITE,bcGRAY, bcBLACK,bcWHITE, ~
             110,10,0,980,100,80, bcCAPITALIC$+bcDATBOLD$+bcALIGNRIGHT$)
     rc = SetCtrlCap(feldFilter, "Select"+bcRECBREAK$+_$("Alle")+bcRECBREAK$+_$("Felder")+bcRECBREAK$+_$("Grünland"))
-    rc = SetCtrlData(feldFilter, "Alle")
+    rc = SetCtrlData(feldFilter, _$("Alle"))
 
 !Aktion hinzufügen unten
     aktionHinzu = AddControl(bcFRMCOMBOBOX,"",bcWHITE,bcGRAY,bcBLACK,bcWHITE, ~
@@ -59,7 +59,7 @@ felderListe:
 	
 	
     CALL DrawForm("",picPath$)
-    ModCtrlCap(felderListe, laskDb_felderLaden$("Alle"), 1)
+    ModCtrlCap(felderListe, laskDb_felderLaden$(_$("Alle")), 1)
 
 !MainLoop
     twx = 0

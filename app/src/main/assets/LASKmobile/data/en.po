@@ -80,11 +80,11 @@ msgstr "crop year"
 
 #: felderliste.bas:39
 msgid "Einstellungen"
-msgstr ""
+msgstr "Settings"
 
 #: felderliste.bas:40 felderliste.bas:124
 msgid "Beenden"
-msgstr ""
+msgstr "End"
 
 #~ msgid "        <b><u>Erntejahr: "
 #~ msgstr "        <b><u>crop year: "

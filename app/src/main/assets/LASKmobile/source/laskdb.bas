@@ -75,7 +75,7 @@ FN.DEF laskDb_felderLaden$(was$)
         ARRAY.COPY columns$[], feldInfo$[]
         !Verhindert dass letzter Eintrag doppelt ist
         if (last = 0) then
-			if ((was$ = "Alle") | (was$ = WORD$(columns$[4], 1, ";")))
+			if ((was$ = _$("Alle")) | (was$ = WORD$(columns$[4], 1, ";")))
 				felder$ = felder$ + bcRECBREAK$ + columns$[1] + bcCOLBREAK$ +  columns$[3] + bcCOLBREAK$ +  FORMAT$("#%.##", VAL(columns$[5])) + " ha"
 			endif
         endif
