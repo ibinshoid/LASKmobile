@@ -8,7 +8,7 @@ felderListe:
 !Überschrift
     ueberschrift = AddControl(bcFRMDISPLAY, "", bcRED, bcLBLUE, bcWHITE, bcBLUE, ~
             0, 0, 0, 1000, 100, 80, bcDATBOLD$+bcALIGNDATCENTRE$)
-    rc = SetCtrlData(ueberschrift, "LASKmobile")
+    rc = SetCtrlData(ueberschrift, _$("LASKmobile"))
 !Felderliste mitte
     felderListe = AddControl(bcFRMLISTBOX,"", bcWHITE,bcLBLUE,bcBLACK,bcWHITE, ~
                 220, 10, 0, 980, hoehe-340, 60, bcDATBOLD$+bcNOHEADBOX$+bcLISTVIEW$)
@@ -19,25 +19,25 @@ felderListe:
 !Filterleiste oben
     feldFilter = AddControl(bcFRMSELECT,"Select", bcWHITE,bcGRAY, bcBLACK,bcWHITE, ~
             110,10,0,980,100,80, bcCAPITALIC$+bcDATBOLD$+bcALIGNRIGHT$)
-    rc = SetCtrlCap(feldFilter, "Select"+bcRECBREAK$+"Alle"+bcRECBREAK$+"Felder"+bcRECBREAK$+"Grünland")
+    rc = SetCtrlCap(feldFilter, "Select"+bcRECBREAK$+_$("Alle")+bcRECBREAK$+_$("Felder")+bcRECBREAK$+_$("Grünland"))
     rc = SetCtrlData(feldFilter, "Alle")
 
 !Aktion hinzufügen unten
     aktionHinzu = AddControl(bcFRMCOMBOBOX,"",bcWHITE,bcGRAY,bcBLACK,bcWHITE, ~
             hoehe - 110, 10, 0, 980, 100, 80, bcALIGNRIGHT$)
     rc = SetCtrlCap(aktionHinzu,""+bcRECBREAK$+"Aktion hinzufügen"+ ~
-            bcRECBREAK$+"Saat"+ ~
-            bcRECBREAK$+"Bodenbearbeitung"+ ~
-            bcRECBREAK$+"Pflanzenschutz"+ ~
-            bcRECBREAK$+"organische Düngung"+ ~
-            bcRECBREAK$+"mineralische Düngung"+ ~
-            bcRECBREAK$+"Ernte")
-    rc = SetCtrlData(aktionHinzu, "Aktion hinzufügen")
+            bcRECBREAK$+_$("Saat")+ ~
+            bcRECBREAK$+_$("Bodenbearbeitung")+ ~
+            bcRECBREAK$+_$("Pflanzenschutz")+ ~
+            bcRECBREAK$+_$("organische Düngung")+ ~
+            bcRECBREAK$+_$("mineralische Düngung")+ ~
+            bcRECBREAK$+_$("Ernte"))
+    rc = SetCtrlData(aktionHinzu, _$("Aktion hinzufügen"))
 !Menü Knopf oben links
     menuKnopf=AddControl(bcFRMBUTTON,"="+bcRECBREAK$+ ~
-            "Erntejahr"+bcRECBREAK$+ ~
-            "Einstellungen"+bcRECBREAK$+ ~
-            "Beenden"+bcRECBREAK$, ~
+            _$("Erntejahr")+bcRECBREAK$+ ~
+            _$("Einstellungen")+bcRECBREAK$+ ~
+            _$("Beenden")+bcRECBREAK$, ~
             bcBLACK,bcLGRAY,bcBLACK,bcCYAN, 0,0,500,100,100,50, bcCAPBOLD$+BS$+bcMENULIST$)
 !Auswahlfenster Erntejahr
 	jahrWahl=AddControl(bcFRMFRAME,"Erntejahr",bcWHITE,bcBLUE,0,bcLGRAY,~
@@ -59,7 +59,7 @@ felderListe:
 	
 	
     CALL DrawForm("",picPath$)
-    ModCtrlCap(felderListe, laskDb_felderLaden$(), 1)
+    ModCtrlCap(felderListe, laskDb_felderLaden$("Alle"), 1)
 
 !MainLoop
     twx = 0
@@ -71,8 +71,15 @@ felderListe:
         SW.BEGIN selCtrl
         SW.CASE feldFilter
             filter$ = GetCtrlData$(feldFilter)
-!            ModCtrlCap(felderListe, laskDb_felderLaden$(), 1)
-           SW.BREAK
+            if (filter$ = _$("Alle")) then
+				filter2$ = "Alle" 
+            elseif (filter$ = _$("Felder")) then
+				filter$ = "Feld" 
+            elseif (filter$ = _$("Grünland")) then
+				filter$ = "Grünland" 
+            endif
+            ModCtrlCap(felderListe, laskDb_felderLaden$(filter$), 1)
+            SW.BREAK
         SW.CASE felderListe
             SPLIT feld$[], GetCtrlData$(felderListe), bcCOLBREAK$
 			laskDb_feldInfo(feld$[1])
@@ -80,41 +87,43 @@ felderListe:
                 if(vorher = selCtrl) then
                     goto aktionenListe
                 endif
-           endif
+            endif
             vorher$ = feld$[2]
             SW.BREAK
         SW.CASE aktionHinzu
-            aktion$ = GetCtrlData$(aktionHinzu)
-            rc = SetCtrlData(aktionHinzu, "Aktion hinzufügen")
-            ModCtrlData(aktionHinzu, "Aktion hinzufügen", 1)
-			gosub aktionBauen
-			aktionInfo$[2] = feld$[1]
-            aktionInfo$[17] = feldInfo$[5]
-            if (aktion$ = "Saat") then
-				aktionInfo$[3] = "Saat"
-				goto aktionInfo_saat
-            elseif (aktion$ = "Bodenbearbeitung") then
-				aktionInfo$[3] = "Bodenbearbeitung"
-				goto aktionInfo_bodenbearbeitung
-            elseif (aktion$ = "Pflanzenschutz") then
-				aktionInfo$[3] = "Pflanzenschutz"
-				goto aktionInfo_psm
-            elseif (aktion$ = "organische Düngung") then
-				aktionInfo$[3] = "Organische Düngung"
-				goto aktionInfo_duengung
-            elseif (aktion$ = "mineralische Düngung") then
-				aktionInfo$[3] = "Mineralische Düngung"
-				goto aktionInfo_duengung
-            elseif (aktion$ = "Ernte") then
-				aktionInfo$[3] = "Ernte"
-				goto aktionInfo_ernte
+            if (vorher$ <> "") then
+	            aktion$ = GetCtrlData$(aktionHinzu)
+	            rc = SetCtrlData(aktionHinzu, "Aktion hinzufügen")
+				gosub aktionBauen
+				aktionInfo$[2] = feld$[1]
+	            aktionInfo$[17] = feldInfo$[5]
+	            if (aktion$ = "Saat") then
+					aktionInfo$[3] = "Saat"
+					goto aktionInfo_saat
+	            elseif (aktion$ = _$("Bodenbearbeitung")) then
+					aktionInfo$[3] = "Bodenbearbeitung"
+					goto aktionInfo_bodenbearbeitung
+	            elseif (aktion$ = _$("Pflanzenschutz")) then
+					aktionInfo$[3] = "Pflanzenschutz"
+					goto aktionInfo_psm
+	            elseif (aktion$ = _$("organische Düngung")) then
+					aktionInfo$[3] = "Organische Düngung"
+					goto aktionInfo_duengung
+	            elseif (aktion$ = _$("mineralische Düngung")) then
+					aktionInfo$[3] = "Mineralische Düngung"
+					goto aktionInfo_duengung
+	            elseif (aktion$ = _$("Ernte")) then
+					aktionInfo$[3] = "Ernte"
+					goto aktionInfo_ernte
+	            endif
+	            popup aktion$
             endif
-            popup aktion$
+            ModCtrlData(aktionHinzu, _$("Aktion hinzufügen"), 1)
         SW.CASE menuKnopf
             menu$ = GetCtrlData$(menuKnopf)
-            if (menu$ = "Beenden") then
+            if (menu$ = _$("Beenden")) then
                 EXIT
-            else if (menu$ = "Erntejahr") then
+            else if (menu$ = _$("Erntejahr")) then
 				ShowCtrl(jahrWahl, 1)	
             endif
             SW.BREAK

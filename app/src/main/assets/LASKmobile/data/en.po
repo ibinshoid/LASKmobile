@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lask 0.6.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-25 12:37+0100\n"
+"PO-Revision-Date: 2018-02-25 12:58+0100\n"
+"Last-Translator: Andreas Strasser\n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"Plural-Forms: 2;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: felderliste.bas:11
+msgid "LASKmobile"
+msgstr "LASKmobile"
+
+#: felderliste.bas:22 felderliste.bas:74
+#, fuzzy
+msgid "Alle"
+msgstr "All"
+
+#: felderliste.bas:22 felderliste.bas:76
+#, fuzzy
+msgid "Felder"
+msgstr "Fields"
+
+#: felderliste.bas:22 felderliste.bas:78
+#, fuzzy
+msgid "Grünland"
+msgstr "Greenland"
+
+#: felderliste.bas:29
+#, fuzzy
+msgid "Saat"
+msgstr "sowing"
+
+#: felderliste.bas:30 felderliste.bas:103
+#, fuzzy
+msgid "Bodenbearbeitung"
+msgstr "Tillage"
+
+#: felderliste.bas:31 felderliste.bas:106
+#, fuzzy
+msgid "Pflanzenschutz"
+msgstr "Plant Protection"
+
+#: felderliste.bas:32 felderliste.bas:109
+#, fuzzy
+msgid "organische Düngung"
+msgstr "Organic fertilization"
+
+#: felderliste.bas:33 felderliste.bas:112
+#, fuzzy
+msgid "mineralische Düngung"
+msgstr "Mineral fertilization"
+
+#: felderliste.bas:34 felderliste.bas:115
+#, fuzzy
+msgid "Ernte"
+msgstr "harvest"
+
+#: felderliste.bas:35 felderliste.bas:121
+#, fuzzy
+msgid "Aktion hinzufügen"
+msgstr "Add action"
+
+#: felderliste.bas:38 felderliste.bas:126
+#, fuzzy
+msgid "Erntejahr"
+msgstr "crop year"
+
+#: felderliste.bas:39
+msgid "Einstellungen"
+msgstr ""
+
+#: felderliste.bas:40 felderliste.bas:124
+msgid "Beenden"
+msgstr ""
+
+#~ msgid "        <b><u>Erntejahr: "
+#~ msgstr "        <b><u>crop year: "

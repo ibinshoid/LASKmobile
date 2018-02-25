@@ -12,6 +12,7 @@ SQL.exec db, "CREATE TABLE IF NOT EXISTS 'protokoll' (id INTEGER PRIMARY KEY AUT
 !Mittel in Arrays schreiben
     i = 0
     length = 0
+    
 
     SQL.Raw_query dbQuery, db, "SELECT * FROM 'mittel';"
     Sql.Query.Length length, dbQuery
@@ -38,13 +39,14 @@ SQL.exec db, "CREATE TABLE IF NOT EXISTS 'protokoll' (id INTEGER PRIMARY KEY AUT
             endif
         endif
     REPEAT
+
 !Erntejahre in Array schreiben
     i = 0
-    length = 0
+    length2 = 0
     last = 0
     SQL.Raw_query dbQuery, db, "SELECT name FROM sqlite_master WHERE type='table' and name like '2___' ORDER BY name;"
-    Sql.Query.Length length, dbQuery
-    dim jahre[length]
+    Sql.Query.Length length2, dbQuery
+    dim jahre[length2]
     WHILE last = 0
         SQL.Next last, dbQuery, columns$[]
         !Verhindert dass letzter Eintrag doppelt ist
@@ -57,7 +59,7 @@ SQL.exec db, "CREATE TABLE IF NOT EXISTS 'protokoll' (id INTEGER PRIMARY KEY AUT
 		endif
     REPEAT
 
-FN.DEF laskDb_felderLaden$()
+FN.DEF laskDb_felderLaden$(was$)
 !Felder aus Datenbank laden
     fn.import db, ernteJahr, bcRECBREAK$, bcCOLBREAK$, bcFLDBREAK$
     felder$ = "" +bcCOLBREAK$ ~
@@ -73,7 +75,9 @@ FN.DEF laskDb_felderLaden$()
         ARRAY.COPY columns$[], feldInfo$[]
         !Verhindert dass letzter Eintrag doppelt ist
         if (last = 0) then
-            felder$ = felder$ + bcRECBREAK$ + columns$[1] + bcCOLBREAK$ +  columns$[3] + bcCOLBREAK$ +  FORMAT$("#%.##", VAL(columns$[5])) + " ha"
+			if ((was$ = "Alle") | (was$ = WORD$(columns$[4], 1, ";")))
+				felder$ = felder$ + bcRECBREAK$ + columns$[1] + bcCOLBREAK$ +  columns$[3] + bcCOLBREAK$ +  FORMAT$("#%.##", VAL(columns$[5])) + " ha"
+			endif
         endif
     REPEAT
     FN.RTN felder$
