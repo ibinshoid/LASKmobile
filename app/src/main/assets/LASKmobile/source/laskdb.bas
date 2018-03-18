@@ -64,8 +64,8 @@ FN.DEF laskDb_felderLaden$(was$)
     fn.import db, ernteJahr, bcRECBREAK$, bcCOLBREAK$, bcFLDBREAK$
     felder$ = "" +bcCOLBREAK$ ~
             +"Id"+bcFLDBREAK$+"0"+bcFLDBREAK$+"1"+bcCOLBREAK$ ~
-            +"Feld"+bcFLDBREAK$+"700"+bcFLDBREAK$+"1"+bcCOLBREAK$ ~
-            +"Größe"+bcFLDBREAK$+"299"+bcFLDBREAK$+"1"
+            +_$("Feld")+bcFLDBREAK$+"700"+bcFLDBREAK$+"1"+bcCOLBREAK$ ~
+            +_$("Größe")+bcFLDBREAK$+"299"+bcFLDBREAK$+"1"
     undim columns$[]
     last = 0
 
@@ -89,8 +89,8 @@ FN.DEF laskDb_aktionenLaden$(feld$)
 
     aktionen$ ="Feld: "+ feld$ +bcCOLBREAK$ ~
             +"Id"+bcFLDBREAK$+"0"+bcFLDBREAK$+"1"+bcCOLBREAK$ ~
-            +"Datum"+bcFLDBREAK$+"340"+bcFLDBREAK$+"2"+bcCOLBREAK$ ~
-            +"Aktion"+bcFLDBREAK$+"659"+bcFLDBREAK$+"1"
+            +_$("Datum")+bcFLDBREAK$+"340"+bcFLDBREAK$+"2"+bcCOLBREAK$ ~
+            +_$("Aktion")+bcFLDBREAK$+"659"+bcFLDBREAK$+"1"
     undim columns$[]
     last = 0
     datum$ = ""
@@ -227,5 +227,5 @@ FN.DEF laskDb_aktionAnlegen(aktAktion$[])
                     + " " + "','" ~
                     + " " + "')"
 
-    popup "Aktion " + aktAktion$[3] + " wurde hinzugefügt!"
+    popup _$("Aktion ") + aktAktion$[3] + _$(" wurde hinzugefügt!")
 FN.END

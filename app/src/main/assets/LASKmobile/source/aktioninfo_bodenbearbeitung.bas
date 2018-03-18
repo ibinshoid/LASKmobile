@@ -3,9 +3,9 @@ aktionInfo_bodenbearbeitung:
 gosub aktionInfoTmp
 
 !Gerät
-    geraet = AddControl(bcFRMCOMBOBOX, "Gerät:",bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
+    geraet = AddControl(bcFRMCOMBOBOX, _$("Gerät:"),bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
             300,20,300,950,100,50, bcDATBOLD$ + bcALLOWNEW$)
-    CtrlCap$ = "Gerät:"
+    CtrlCap$ = _$("Gerät:")
     for i2 = 1 to length
         if (mittel$[i2, 4] = "4") then
              CtrlCap$ = CtrlCap$ + bcRECBREAK$ + mittel$[i2, 5]
@@ -45,7 +45,7 @@ gosub aktionInfoTmp
 	        endif
             SW.BREAK
         SW.CASE kommentar
-            TEXT.Input text$, GetCtrlData$(kommentar), "Kommentar:"
+            TEXT.Input text$, GetCtrlData$(kommentar), _$("Kommentar:")
             ModCtrlData(kommentar, text$, 1)
             W_R.continue
         SW.CASE datum

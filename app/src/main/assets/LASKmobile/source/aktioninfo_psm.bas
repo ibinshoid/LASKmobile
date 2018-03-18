@@ -19,7 +19,7 @@ gosub aktionInfoTmp
     rc = SetCtrlCap(mittel1, CtrlCap$)
     rc = SetCtrlData(mittel1, WORD$(PSM$[1],1, "~"))
 !Menge1
-    menge1 = AddControl(bcFRMDisplay, "Liter:",bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
+    menge1 = AddControl(bcFRMDisplay, _$("Liter:"),bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
             300,600,150,370,100,50, bcDATBOLD$)
     rc = SetCtrlData(menge1,  WORD$(PSM$[1],2, "~"))
 
@@ -29,7 +29,7 @@ gosub aktionInfoTmp
     rc = SetCtrlCap(mittel2, CtrlCap$)
     rc = SetCtrlData(mittel2, WORD$(PSM$[2],1, "~"))
 !Menge2
-    menge2 = AddControl(bcFRMDisplay, "Liter:",bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
+    menge2 = AddControl(bcFRMDisplay, _$("Liter:"),bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
             420,600,150,370,100,50, bcDATBOLD$)
     rc = SetCtrlData(menge2,  WORD$(PSM$[2],2, "~"))
 
@@ -39,7 +39,7 @@ gosub aktionInfoTmp
     rc = SetCtrlCap(mittel3, CtrlCap$)
     rc = SetCtrlData(mittel3, WORD$(PSM$[3],1, "~"))
 !Menge3
-    menge3 = AddControl(bcFRMDisplay, "Liter:",bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
+    menge3 = AddControl(bcFRMDisplay, _$("Liter:"),bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
             540,600,150,370,100,50, bcDATBOLD$)
     rc = SetCtrlData(menge3,  WORD$(PSM$[3],2, "~"))
 
@@ -49,7 +49,7 @@ gosub aktionInfoTmp
     rc = SetCtrlCap(mittel4, CtrlCap$)
     rc = SetCtrlData(mittel4, WORD$(PSM$[4],1, "~"))
 !Menge4
-    menge4 = AddControl(bcFRMDisplay, "Liter:",bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
+    menge4 = AddControl(bcFRMDisplay, _$("Liter:"),bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
             660,600,150,370,100,50, bcDATBOLD$)
     rc = SetCtrlData(menge4,  WORD$(PSM$[4],2, "~"))
 
@@ -59,7 +59,7 @@ gosub aktionInfoTmp
     rc = SetCtrlCap(mittel5, CtrlCap$)
     rc = SetCtrlData(mittel5, WORD$(PSM$[5],1, "~"))
 !Menge5
-    menge5 = AddControl(bcFRMDisplay, "Liter:",bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
+    menge5 = AddControl(bcFRMDisplay, _$("Liter:"),bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
             780,600,150,370,100,50, bcDATBOLD$)
     rc = SetCtrlData(menge5,  WORD$(PSM$[5],2, "~"))
 
@@ -125,7 +125,7 @@ gosub aktionInfoTmp
 	        endif
             SW.BREAK
         SW.CASE kommentar
-            TEXT.Input text$, GetCtrlData$(kommentar), "Kommentar:"
+            TEXT.Input text$, GetCtrlData$(kommentar), _$("Kommentar:")
             ModCtrlData(kommentar, text$, 1)
             W_R.continue
         SW.CASE datum

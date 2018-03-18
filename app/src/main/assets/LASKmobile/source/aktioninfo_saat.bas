@@ -3,9 +3,9 @@ aktionInfo_saat:
 gosub aktionInfoTmp
 
 !Fruchtart
-    frucht = AddControl(bcFRMCOMBOBOX, "Fruchtart:",bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
+    frucht = AddControl(bcFRMCOMBOBOX, _$("Fruchtart:"),bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
             300,20,300,950,100,50, bcDATBOLD$ + bcALLOWNEW$)
-    CtrlCap$ = "Fruchtart:"
+    CtrlCap$ = _$("Fruchtart:")
     for i2 = 1 to length
         if (mittel$[i2, 4] = "0") then
             if (Is_In(mittel$[i2, 6], CtrlCap$) = 0) then
@@ -16,9 +16,9 @@ gosub aktionInfoTmp
     rc = SetCtrlCap(frucht, CtrlCap$)
     rc = SetCtrlData(frucht, aktionInfo$[7])
 !Sorte
-    sorte = AddControl(bcFRMCOMBOBOX, "Sorte:",bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
+    sorte = AddControl(bcFRMCOMBOBOX, _$("Sorte:"),bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
             420,20,300,950,100,50, bcDATBOLD$ + bcALLOWNEW$)
-    CtrlCap$ = "Sorte:"
+    CtrlCap$ = _$("Sorte:")
     for i2 = 1 to length
         if (mittel$[i2, 4] = "0") then
             if (Is_In(mittel$[i2, 5], CtrlCap$) = 0) then
@@ -31,21 +31,21 @@ gosub aktionInfoTmp
     rc = SetCtrlCap(sorte, CtrlCap$)
     rc = SetCtrlData(sorte, aktionInfo$[6])
 !Saatmenge
-    menge = AddControl(bcFRMDisplay, "Saatmenge:",bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
+    menge = AddControl(bcFRMDisplay, _$("Saatmenge:"),bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
             540,20,300,530,100,50, bcDATBOLD$+bcAlignDatRight$)
 !Saateinheit
      einheit= AddControl(bcFRMCOMBOBOX, "",bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
             540,550,0,420,100,50, bcDATBOLD$)
-     SetCtrlCap(einheit,""+bcRECBREAK$+"kg/ha"+bcRECBREAK$+"Kö.m²")
+     SetCtrlCap(einheit,""+bcRECBREAK$+"kg/ha"+bcRECBREAK$+_$("Kö/m²"))
      if (val(aktionInfo$[8]) < 0) then
         rc = SetCtrlData(menge, right$(aktionInfo$[8], -1))
         rc = SetCtrlData(einheit, "kg/ha")
      else
         rc = SetCtrlData(menge, aktionInfo$[8])
-        rc = SetCtrlData(einheit, "Kö/m²")
+        rc = SetCtrlData(einheit, _$("Kö/m²"))
      endif
 !Hauptfrucht?
-    hauptFrucht = AddControl(bcFRMCHECKBOX, "Hauptfrucht:",bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
+    hauptFrucht = AddControl(bcFRMCHECKBOX, _$("Hauptfrucht:"),bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
             660,20,300,500,100,50, bcDATBOLD$)
     if(aktionInfo$[9] = "1") then
         rc=SetCtrlData(hauptFrucht,"Y")
@@ -61,7 +61,7 @@ gosub aktionInfoTmp
         SW.CASE zurKnopf
             goto aktionenListe
         SW.CASE frucht
-            CtrlCap$ = "Sorte:"
+            CtrlCap$ = _$("Sorte:")
             for i2 = 1 to length
                 if (mittel$[i2, 4] = "0") then
                     if (Is_In(mittel$[i2, 5], CtrlCap$) = 0) then
@@ -109,7 +109,7 @@ gosub aktionInfoTmp
 	        endif
             SW.BREAK
         SW.CASE kommentar
-            TEXT.Input text$, GetCtrlData$(kommentar), "Kommentar:"
+            TEXT.Input text$, GetCtrlData$(kommentar), _$("Kommentar:")
             ModCtrlData(kommentar, text$, 1)
             W_R.continue
         SW.CASE datum

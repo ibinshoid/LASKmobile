@@ -3,15 +3,15 @@ aktionInfo_ernte:
 gosub aktionInfoTmp
 
 !Ertrag
-    ertrag = AddControl(bcFRMDisplay, "Ertrag dt/ha:",bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
+    ertrag = AddControl(bcFRMDisplay, _$("Ertrag dt/ha:"),bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
             300,20,300,450,100,50, bcDATBOLD$)
     rc = SetCtrlData(ertrag, aktionInfo$[8])
 !Feuchte
-    feuchte = AddControl(bcFRMDisplay, "Feuchte %:",bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
+    feuchte = AddControl(bcFRMDisplay, _$("Feuchte %:"),bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
             300,500,300,450,100,50, bcDATBOLD$)
     rc = SetCtrlData(feuchte, aktionInfo$[10])
 !Erlös
-    erloes = AddControl(bcFRMDisplay, "Erlös €/dt:",bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
+    erloes = AddControl(bcFRMDisplay, _$("Erlös €/dt:"),bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
             420,20,300,450,100,50, bcDATBOLD$)
     rc = SetCtrlData(erloes, aktionInfo$[9])
     CALL DrawForm("","")
@@ -56,7 +56,7 @@ gosub aktionInfoTmp
 	        endif
             SW.BREAK
         SW.CASE kommentar
-            TEXT.Input text$, GetCtrlData$(kommentar), "Kommentar:"
+            TEXT.Input text$, GetCtrlData$(kommentar), _$("Kommentar:")
             ModCtrlData(kommentar, text$, 1)
             W_R.continue
         SW.CASE datum

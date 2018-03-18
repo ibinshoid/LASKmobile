@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lask 0.6.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-25 12:37+0100\n"
-"PO-Revision-Date: 2018-02-25 12:58+0100\n"
+"POT-Creation-Date: 2018-03-18 10:08+0100\n"
+"PO-Revision-Date: 2018-03-18 10:22+0100\n"
 "Last-Translator: Andreas Strasser\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -19,62 +19,179 @@ msgstr ""
 "Plural-Forms: 2;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
+#: aktionenliste.bas:10
+msgid "Feld: "
+msgstr "field"
+
+#: aktionenliste.bas:16 laskdb.bas:92
+msgid "Datum"
+msgstr "Date"
+
+#: aktionenliste.bas:17 laskdb.bas:93
+msgid "Aktion"
+msgstr "Action"
+
+#: aktionenliste.bas:19
+msgid "Entfernen"
+msgstr "Delete"
+
+#: aktionenliste.bas:59
+msgid "Frage"
+msgstr "Question"
+
+#: aktionenliste.bas:59
+msgid "Aktion '"
+msgstr "really remove action '"
+
+#: aktionenliste.bas:59
+msgid ""
+"' wirklich löschen?\n"
+" Alle Daten gehen verloren"
+msgstr ""
+"' ? \n"
+"All data get lost"
+
+#: aktionenliste.bas:59
+msgid "Abbrechen"
+msgstr "Cancel"
+
+#: aktionenliste.bas:59
+msgid "OK"
+msgstr "OK"
+
+#: aktioninfo.bas:13
+msgid "Datum:"
+msgstr "date:"
+
+#: aktioninfo.bas:20
+msgid "Kosten:"
+msgstr "cost €:"
+
+#: aktioninfo.bas:25
+msgid "Fläche(ha):"
+msgstr "area(ha):"
+
+#: aktioninfo.bas:29 aktioninfo_bodenbearbeitung.bas:48
+#: aktioninfo_duengung.bas:118 aktioninfo_ernte.bas:59 aktioninfo_psm.bas:128
+#: aktioninfo_saat.bas:112
+msgid "Kommentar:"
+msgstr "Comment:"
+
+#: aktioninfo.bas:34 aktioninfo.bas:36
+msgid "Anwender:"
+msgstr "operator:"
+
+#: aktioninfo.bas:45
+msgid "Speichern"
+msgstr "Save"
+
+#: aktioninfo_bodenbearbeitung.bas:6 aktioninfo_bodenbearbeitung.bas:8
+msgid "Gerät:"
+msgstr "machine:"
+
+#: aktioninfo_duengung.bas:6 aktioninfo_duengung.bas:8
+msgid "Dünger:"
+msgstr "Fertilizer:"
+
+#: aktioninfo_duengung.bas:23 aktioninfo_duengung.bas:88
+msgid "Menge:"
+msgstr "amount:"
+
+#: aktioninfo_ernte.bas:6
+msgid "Ertrag dt/ha:"
+msgstr "yield dt/ha:"
+
+#: aktioninfo_ernte.bas:10
+msgid "Feuchte %:"
+msgstr "moisture %:"
+
+#: aktioninfo_ernte.bas:14
+msgid "Erlös €/dt:"
+msgstr "earnings (€/dt):"
+
+#: aktioninfo_psm.bas:22 aktioninfo_psm.bas:32 aktioninfo_psm.bas:42
+#: aktioninfo_psm.bas:52 aktioninfo_psm.bas:62
+msgid "Liter:"
+msgstr "litre:"
+
+#: aktioninfo_saat.bas:6 aktioninfo_saat.bas:8
+msgid "Fruchtart:"
+msgstr "crop:"
+
+#: aktioninfo_saat.bas:19 aktioninfo_saat.bas:21 aktioninfo_saat.bas:64
+msgid "Sorte:"
+msgstr "cultivar:"
+
+#: aktioninfo_saat.bas:34
+msgid "Saatmenge:"
+msgstr "sowing amount:"
+
+#: aktioninfo_saat.bas:39
+msgid "Kö.m²"
+msgstr " grains/m²"
+
+#: aktioninfo_saat.bas:45
+msgid "Kö/m²"
+msgstr " grains/m²"
+
+#: aktioninfo_saat.bas:48
+msgid "Hauptfrucht:"
+msgstr "main crop"
+
 #: felderliste.bas:11
 msgid "LASKmobile"
 msgstr "LASKmobile"
 
-#: felderliste.bas:22 felderliste.bas:74
-#, fuzzy
+#: felderliste.bas:17 laskdb.bas:67
+msgid "Feld"
+msgstr "field"
+
+#: felderliste.bas:18 laskdb.bas:68
+msgid "Größe"
+msgstr "Size"
+
+#: felderliste.bas:22 felderliste.bas:23 felderliste.bas:62 felderliste.bas:74
+#: laskdb.bas:78
 msgid "Alle"
 msgstr "All"
 
 #: felderliste.bas:22 felderliste.bas:76
-#, fuzzy
 msgid "Felder"
 msgstr "Fields"
 
 #: felderliste.bas:22 felderliste.bas:78
-#, fuzzy
 msgid "Grünland"
 msgstr "Greenland"
 
 #: felderliste.bas:29
-#, fuzzy
 msgid "Saat"
 msgstr "sowing"
 
 #: felderliste.bas:30 felderliste.bas:103
-#, fuzzy
 msgid "Bodenbearbeitung"
 msgstr "Tillage"
 
 #: felderliste.bas:31 felderliste.bas:106
-#, fuzzy
 msgid "Pflanzenschutz"
 msgstr "Plant Protection"
 
 #: felderliste.bas:32 felderliste.bas:109
-#, fuzzy
 msgid "organische Düngung"
 msgstr "Organic fertilization"
 
 #: felderliste.bas:33 felderliste.bas:112
-#, fuzzy
 msgid "mineralische Düngung"
 msgstr "Mineral fertilization"
 
 #: felderliste.bas:34 felderliste.bas:115
-#, fuzzy
 msgid "Ernte"
 msgstr "harvest"
 
-#: felderliste.bas:35 felderliste.bas:121
-#, fuzzy
+#: felderliste.bas:35 felderliste.bas:96 felderliste.bas:121
 msgid "Aktion hinzufügen"
 msgstr "Add action"
 
-#: felderliste.bas:38 felderliste.bas:126
-#, fuzzy
+#: felderliste.bas:38 felderliste.bas:43 felderliste.bas:126
 msgid "Erntejahr"
 msgstr "crop year"
 
@@ -85,6 +202,14 @@ msgstr "Settings"
 #: felderliste.bas:40 felderliste.bas:124
 msgid "Beenden"
 msgstr "End"
+
+#: laskdb.bas:230
+msgid "Aktion "
+msgstr "Action "
+
+#: laskdb.bas:230
+msgid " wurde hinzugefügt!"
+msgstr " has been added!"
 
 #~ msgid "        <b><u>Erntejahr: "
 #~ msgstr "        <b><u>crop year: "

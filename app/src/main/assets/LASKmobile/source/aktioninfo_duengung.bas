@@ -3,9 +3,9 @@ aktionInfo_duengung:
 gosub aktionInfoTmp
 
 !Dünger
-    duenger = AddControl(bcFRMCombobox, "Dünger:",bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
+    duenger = AddControl(bcFRMCombobox, _$("Dünger:"),bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
             300,20,400,950,100,50, bcDATBOLD$)
-    CtrlCap$ = "Dünger:"
+    CtrlCap$ = _$("Dünger:")
     for i2 = 1 to length
         if (aktionInfo$[3] = "Organische Düngung") then
             if (mittel$[i2, 4] = "2") then
@@ -20,7 +20,7 @@ gosub aktionInfoTmp
     rc = SetCtrlCap(duenger, CtrlCap$)
     rc = SetCtrlData(duenger, aktionInfo$[6])
 !Menge
-    menge = AddControl(bcFRMDisplay, "Menge:" + aktionInfo$[7] + "/ha",bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
+    menge = AddControl(bcFRMDisplay, _$("Menge:") + aktionInfo$[7] + "/ha",bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
             420,20,400,950,100,50, bcDATBOLD$)
     rc = SetCtrlData(menge, aktionInfo$[14])
 !DungN
@@ -85,7 +85,7 @@ gosub aktionInfoTmp
                     aktionInfo$[7] = mittel$[i2, 6]
                 endif
             next i2
-            ModCtrlCap(menge, "Menge:" + aktionInfo$[7] + "/ha", 1)
+            ModCtrlCap(menge, _$("Menge:") + aktionInfo$[7] + "/ha", 1)
             W_R.continue
         SW.CASE menge
             ModCtrlZahl(menge, 0, 1)
@@ -115,7 +115,7 @@ gosub aktionInfoTmp
 	        endif
             SW.BREAK
        SW.CASE kommentar
-            TEXT.Input text$, GetCtrlData$(kommentar), "Kommentar:"
+            TEXT.Input text$, GetCtrlData$(kommentar), _$("Kommentar:")
             ModCtrlData(kommentar, text$, 1)
             W_R.continue
         SW.CASE datum

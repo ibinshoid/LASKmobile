@@ -10,30 +10,30 @@ aktionInfoTmp:
     zurKnopf = AddControl(bcFRMBUTTON, "GC-Back.png",bcBLACK,bcLGRAY,0,0, ~
             0,0,0,100,100,50, bcGRAPHIC$)
 !Datum
-    datum = AddControl(bcFRMDATE, "Datum:",bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
+    datum = AddControl(bcFRMDATE, _$("Datum:"),bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
             120,20,300,450,100,50, bcDATBOLD$)
     datum2 = AddControl(bcFRMDisplay, "",bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
             120,320,0,350,100,50, bcDATBOLD$)
     rc = SetCtrlData(datum, aktionInfo$[4])
     rc = SetCtrlData(datum2, MID$(GetCtrlData$(datum), 9, 2)+"."+MID$(GetCtrlData$(datum), 6, 2)+"."+MID$(GetCtrlData$(datum), 1, 4))
 !Kosten
-    kosten = AddControl(bcFRMDISPLAY, "Kosten:",bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
+    kosten = AddControl(bcFRMDISPLAY, _$("Kosten:"),bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
             hoehe - 480,20,300,500,100,50, bcDATBOLD$)
     SPLIT kosten$[], REPLACE$(aktionInfo$[5], ",", "."), ";"
     rc = SetCtrlData(kosten, STR$(VAL(kosten$[1]) + VAL(kosten$[2]) + VAL(kosten$[3])) + " €")
 !Teilfläche
-    flaeche = AddControl(bcFRMDISPLAY, "Fläche(ha):",bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
+    flaeche = AddControl(bcFRMDISPLAY, _$("Fläche(ha):"),bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
             hoehe - 480,550,250,420,100,50, bcDATBOLD$)
     rc = SetCtrlData(flaeche, aktionInfo$[17])
 !Kommentar
-    kommentar = AddControl(bcFRMDisplay, "Kommentar:",bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
+    kommentar = AddControl(bcFRMDisplay, _$("Kommentar:"),bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
             hoehe - 360,20,300,950,100,50, bcDATBOLD$)
     rc = SetCtrlData(kommentar, aktionInfo$[18])
     text$ = aktionInfo$[18]
 !Anwender
-    anwender = AddControl(bcFRMCOMBOBOX, "Anwender:", bcBLACK, bcLGRAY, bcBLACK, bcWHITE, ~
+    anwender = AddControl(bcFRMCOMBOBOX, _$("Anwender:"), bcBLACK, bcLGRAY, bcBLACK, bcWHITE, ~
             hoehe-240, 20, 300, 950, 100, 50, bcDATBOLD$ + bcALLOWNEW$)
-    CtrlCap$ = "Anwender:"
+    CtrlCap$ = _$("Anwender:")
     for i2 = 1 to length
         if (mittel$[i2, 4] = "5") then
             CtrlCap$ = CtrlCap$ + bcRECBREAK$ + mittel$[i2, 5]
@@ -42,7 +42,7 @@ aktionInfoTmp:
     rc = SetCtrlCap(anwender, CtrlCap$)
     rc = SetCtrlData(anwender, aktionInfo$[19])
 !Aktion speichern unten
-    speichernKnopf = AddControl(bcFRMBUTTON, "Speichern",bcBLACK,bcLGRAY,0,0, ~
+    speichernKnopf = AddControl(bcFRMBUTTON, _$("Speichern"),bcBLACK,bcLGRAY,0,0, ~
             hoehe - 120,20,0,400,100,80, bcALIGNRIGHT$)
 !Zahlen eingeben Frame
 	zahlenInput=AddControl(bcFRMFRAME,"",bcWHITE,bcBLACK,0,bcLGRAY,~

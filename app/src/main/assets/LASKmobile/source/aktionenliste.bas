@@ -7,16 +7,16 @@ aktionenListe:
 !Überschrift
     ueberschrift = AddControl(bcFRMDISPLAY, "", bcRED, bcLBLUE, bcWHITE, bcBLUE, ~
             0, 0, 0, 1000, 100, 80, bcDATBOLD$+bcALIGNDATCENTRE$)
-    rc = SetCtrlData(ueberschrift, "Feld: " + feld$[2])
+    rc = SetCtrlData(ueberschrift, _$("Feld: ") + feld$[2])
 !Aktionenliste mitte
     aktionenListe = AddControl(bcFRMLISTBOX,"",bcWHITE,bcLBLUE,bcBLACK,bcWHITE, ~
                 110, 10, 0, 980, hoehe-230, 60, bcDATBOLD$+bcNOHEADBOX$+bcLISTVIEW$)
     rc = SetCtrlCap(aktionenListe, ""+bcCOLBREAK$ ~
                 +"Id"+bcFLDBREAK$+"0"+bcFLDBREAK$+"1"+bcCOLBREAK$ ~
-                +"Datum"+bcFLDBREAK$+"340"+bcFLDBREAK$+"2"+bcCOLBREAK$ ~
-                +"Aktion"+bcFLDBREAK$+"639"+bcFLDBREAK$+"1"+bcRECBREAK$+" ")
+                +_$("Datum")+bcFLDBREAK$+"340"+bcFLDBREAK$+"2"+bcCOLBREAK$ ~
+                +_$("Aktion")+bcFLDBREAK$+"639"+bcFLDBREAK$+"1"+bcRECBREAK$+" ")
 !Aktion löschen unten links
-    entfKnopf = AddControl(bcFRMBUTTON, "Entfernen",bcBLACK,bcLGRAY,0,0, ~
+    entfKnopf = AddControl(bcFRMBUTTON, _$("Entfernen"),bcBLACK,bcLGRAY,0,0, ~
             hoehe-110, 10, 0, 400, 100, 80, bcALIGNRIGHT$)
 !Zurück Knopf oben links
     zurKnopf = AddControl(bcFRMBUTTON, "GC-Back.png",bcBLACK,bcLGRAY,0,0, ~
@@ -56,7 +56,7 @@ aktionenListe:
         SW.CASE zurKnopf
             goto felderListe
         SW.CASE entfKnopf
-            Dialog.Message "Frage", "Aktion '" + aktionInfo$[3] +"' wirklich löschen?\n Alle Daten gehen verloren", button, "Abbrechen", "OK"
+            Dialog.Message _$("Frage"), _$("Aktion '") + aktionInfo$[3] +_$("' wirklich löschen?\n Alle Daten gehen verloren"), button, _$("Abbrechen"), _$("OK")
             if (button = 2) then
                 laskDb_aktionEntfernen(aktionInfo$[1])
                 button = -1

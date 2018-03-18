@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-25 12:37+0100\n"
+"POT-Creation-Date: 2018-03-18 10:08+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,137 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: aktionenliste.bas:10
+msgid "Feld: "
+msgstr ""
+
+#: aktionenliste.bas:16 laskdb.bas:92
+msgid "Datum"
+msgstr ""
+
+#: aktionenliste.bas:17 laskdb.bas:93
+msgid "Aktion"
+msgstr ""
+
+#: aktionenliste.bas:19
+msgid "Entfernen"
+msgstr ""
+
+#: aktionenliste.bas:59
+msgid "Frage"
+msgstr ""
+
+#: aktionenliste.bas:59
+msgid "Aktion '"
+msgstr ""
+
+#: aktionenliste.bas:59
+msgid ""
+"' wirklich löschen?\n"
+" Alle Daten gehen verloren"
+msgstr ""
+
+#: aktionenliste.bas:59
+msgid "Abbrechen"
+msgstr ""
+
+#: aktionenliste.bas:59
+msgid "OK"
+msgstr ""
+
+#: aktioninfo.bas:13
+msgid "Datum:"
+msgstr ""
+
+#: aktioninfo.bas:20
+msgid "Kosten:"
+msgstr ""
+
+#: aktioninfo.bas:25
+msgid "Fläche(ha):"
+msgstr ""
+
+#: aktioninfo.bas:29 aktioninfo_bodenbearbeitung.bas:48
+#: aktioninfo_duengung.bas:118 aktioninfo_ernte.bas:59 aktioninfo_psm.bas:128
+#: aktioninfo_saat.bas:112
+msgid "Kommentar:"
+msgstr ""
+
+#: aktioninfo.bas:34 aktioninfo.bas:36
+msgid "Anwender:"
+msgstr ""
+
+#: aktioninfo.bas:45
+msgid "Speichern"
+msgstr ""
+
+#: aktioninfo_bodenbearbeitung.bas:6 aktioninfo_bodenbearbeitung.bas:8
+msgid "Gerät:"
+msgstr ""
+
+#: aktioninfo_duengung.bas:6 aktioninfo_duengung.bas:8
+msgid "Dünger:"
+msgstr ""
+
+#: aktioninfo_duengung.bas:23 aktioninfo_duengung.bas:88
+msgid "Menge:"
+msgstr ""
+
+#: aktioninfo_ernte.bas:6
+msgid "Ertrag dt/ha:"
+msgstr ""
+
+#: aktioninfo_ernte.bas:10
+msgid "Feuchte %:"
+msgstr ""
+
+#: aktioninfo_ernte.bas:14
+msgid "Erlös €/dt:"
+msgstr ""
+
+#: aktioninfo_psm.bas:22 aktioninfo_psm.bas:32 aktioninfo_psm.bas:42
+#: aktioninfo_psm.bas:52 aktioninfo_psm.bas:62
+msgid "Liter:"
+msgstr ""
+
+#: aktioninfo_saat.bas:6 aktioninfo_saat.bas:8
+msgid "Fruchtart:"
+msgstr ""
+
+#: aktioninfo_saat.bas:19 aktioninfo_saat.bas:21 aktioninfo_saat.bas:64
+msgid "Sorte:"
+msgstr ""
+
+#: aktioninfo_saat.bas:34
+msgid "Saatmenge:"
+msgstr ""
+
+#: aktioninfo_saat.bas:39
+msgid "Kö.m²"
+msgstr ""
+
+#: aktioninfo_saat.bas:45
+msgid "Kö/m²"
+msgstr ""
+
+#: aktioninfo_saat.bas:48
+msgid "Hauptfrucht:"
+msgstr ""
+
 #: felderliste.bas:11
 msgid "LASKmobile"
 msgstr ""
 
-#: felderliste.bas:22 felderliste.bas:74
+#: felderliste.bas:17 laskdb.bas:67
+msgid "Feld"
+msgstr ""
+
+#: felderliste.bas:18 laskdb.bas:68
+msgid "Größe"
+msgstr ""
+
+#: felderliste.bas:22 felderliste.bas:23 felderliste.bas:62 felderliste.bas:74
+#: laskdb.bas:78
 msgid "Alle"
 msgstr ""
 
@@ -57,11 +183,11 @@ msgstr ""
 msgid "Ernte"
 msgstr ""
 
-#: felderliste.bas:35 felderliste.bas:121
+#: felderliste.bas:35 felderliste.bas:96 felderliste.bas:121
 msgid "Aktion hinzufügen"
 msgstr ""
 
-#: felderliste.bas:38 felderliste.bas:126
+#: felderliste.bas:38 felderliste.bas:43 felderliste.bas:126
 msgid "Erntejahr"
 msgstr ""
 
@@ -71,4 +197,12 @@ msgstr ""
 
 #: felderliste.bas:40 felderliste.bas:124
 msgid "Beenden"
+msgstr ""
+
+#: laskdb.bas:230
+msgid "Aktion "
+msgstr ""
+
+#: laskdb.bas:230
+msgid " wurde hinzugefügt!"
 msgstr ""
