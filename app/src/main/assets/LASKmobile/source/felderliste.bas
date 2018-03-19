@@ -97,7 +97,7 @@ felderListe:
 				gosub aktionBauen
 				aktionInfo$[2] = feld$[1]
 	            aktionInfo$[17] = feldInfo$[5]
-	            if (aktion$ = "Saat") then
+	            if (aktion$ = _$("Saat")) then
 					aktionInfo$[3] = "Saat"
 					goto aktionInfo_saat
 	            elseif (aktion$ = _$("Bodenbearbeitung")) then
