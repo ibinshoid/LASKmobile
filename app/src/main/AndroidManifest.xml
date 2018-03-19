@@ -31,7 +31,7 @@ This file is part of BASIC! for Android
     xmlns:tools="http://schemas.android.com/tools"
     package="com.rfo.basic"
     android:versionCode="0500"
-    android:versionName="0.5"
+    android:versionName="0.5.1"
     android:installLocation="auto"
     tools:ignore="UnusedAttribute"> <!-- installLocation not available in API 7 -->
 
