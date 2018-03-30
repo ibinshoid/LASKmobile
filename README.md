@@ -1,6 +1,8 @@
 # LASKmobile
 App zur Dateneingabe für die Ackerschlagkartei LASK
 
+[Download auf F-Droid](https://f-droid.org/packages/com.rfo.basic/)
+
 Infos zu LASK gibts unter https://www.linux-apps.com/p/1158373/
 
 Mit LASKmobile können Aktionen am Handy eingegeben, und dann mit der PC-Version abgeglichen werden.
@@ -10,6 +12,8 @@ Fragen, Anregungen und Meinungsaustausch zu LASK und LASKmobile im Forum unter h
 _________________________________________________________________________________________
 
 Data entry app for the field record LASK
+
+[Download on F-Droid](https://f-droid.org/packages/com.rfo.basic/)
 
 Information about LASK is available at https://www.linux-apps.com/p/1158373/
 
