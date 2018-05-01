@@ -38,6 +38,11 @@ gosub aktionInfoTmp
 				laskDb_aktionInfo(aktionInfo$[1])
 				goto aktionInfo_bodenbearbeitung
 			endif
+        SW.CASE kosten
+			HideCtrl(zahl1, 0)
+			HideCtrl(tasteBack1, 0)
+            ModCtrlKosten(kosten, 0, 1)
+            W_R.continue
         SW.CASE flaeche
             ModCtrlZahl(flaeche, 0, 1)
 	        if (val(GetCtrlData$(flaeche)) > val(feldInfo$[5])) then

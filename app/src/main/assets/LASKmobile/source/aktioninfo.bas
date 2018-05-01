@@ -44,53 +44,183 @@ aktionInfoTmp:
 !Aktion speichern unten
     speichernKnopf = AddControl(bcFRMBUTTON, _$("Speichern"),bcBLACK,bcLGRAY,0,0, ~
             hoehe - 120,20,0,400,100,80, bcALIGNRIGHT$)
+!Zahlen eingeben Frame2
+		zahlenFeld=AddControl(bcFRMFRAME,"Zahl eingeben",bcWHITE,bcBLUE,0,bcLGRAY,~
+				200,100,0,800,600,70,bcDATBOLD$+bcHIDE$)
+		zahl=AddControl(bcFRMSTRING,"",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
+				400,150,0,540,125,125, bcDATBOLD$+bcDISABLED$+bcAlignDatRight$)
+		tasteBack=AddControl(bcFRMButton,"<-",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
+				400,700,0,150,125,125, bcDATBOLD$+bcFlat$)
+		tasteAbbr=AddControl(bcFRMButton,"Abbr.",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
+				600,150,0,340,125,125, bcDATBOLD$+bcFlat$)
+		tasteOk=AddControl(bcFRMButton,"OK",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
+				600,560,0,290,125,125, bcDATBOLD$+bcFlat$)
 !Zahlen eingeben Frame
 	zahlenInput=AddControl(bcFRMFRAME,"",bcWHITE,bcBLACK,0,bcLGRAY,~
 				hoehe-600,0,0,1000,600,50,bcDATBOLD$+bcHIDE$+bcFADEBACK$)
-		zahl=AddControl(bcFRMSTRING,"",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
-				hoehe-600,20,0,960,100,100, bcDATBOLD$+bcDISABLED$+bcAlignDatRight$)
 		taste1=AddControl(bcFRMButton,"1",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
-				hoehe-480,20,0,220,100,100, bcDATBOLD$+bcFlat$)
+				hoehe-580,20,0,300,125,125, bcDATBOLD$+bcFlat$)
 		taste2=AddControl(bcFRMButton,"2",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
-				hoehe-480,260,0,220,100,100, bcDATBOLD$+bcFlat$)
+				hoehe-580,340,0,300,125,125, bcDATBOLD$+bcFlat$)
 		taste3=AddControl(bcFRMButton,"3",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
-				hoehe-480,500,0,220,100,100, bcDATBOLD$+bcFlat$)
-		tasteBack=AddControl(bcFRMButton,"<-",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
-				hoehe-480,740,0,240,100,100, bcDATBOLD$+bcFlat$)
+				hoehe-580,680,0,300,125,125, bcDATBOLD$+bcFlat$)
 		taste4=AddControl(bcFRMButton,"4",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
-				hoehe-360,20,0,220,100,100, bcDATBOLD$+bcFlat$)
+				hoehe-435,20,0,300,125,125, bcDATBOLD$+bcFlat$)
 		taste5=AddControl(bcFRMButton,"5",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
-				hoehe-360,260,0,220,100,100, bcDATBOLD$+bcFlat$)
+				hoehe-435,340,0,300,125,125, bcDATBOLD$+bcFlat$)
 		taste6=AddControl(bcFRMButton,"6",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
-				hoehe-360,500,0,220,100,100, bcDATBOLD$+bcFlat$)
-		tasteAbbr=AddControl(bcFRMButton,"Esc",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
-				hoehe-360,740,0,240,100,100, bcDATBOLD$+bcFlat$)
+				hoehe-435,680,0,300,125,125, bcDATBOLD$+bcFlat$)
 		taste7=AddControl(bcFRMButton,"7",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
-				hoehe-240,20,0,220,100,100, bcDATBOLD$+bcFlat$)
+				hoehe-290,20,0,300,125,125, bcDATBOLD$+bcFlat$)
 		taste8=AddControl(bcFRMButton,"8",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
-				hoehe-240,260,0,220,100,100, bcDATBOLD$+bcFlat$)
+				hoehe-290,340,0,300,125,125, bcDATBOLD$+bcFlat$)
 		taste9=AddControl(bcFRMButton,"9",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
-				hoehe-240,500,0,220,100,100, bcDATBOLD$+bcFlat$)
-		tasteKomma=AddControl(bcFRMButton,",",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
-				hoehe-120,20,0,220,100,100, bcDATBOLD$+bcFlat$)
+				hoehe-290,680,0,300,125,125, bcDATBOLD$+bcFlat$)
+		tasteKomma=AddControl(bcFRMButton,"∙",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
+				hoehe-145,340,0,300,125,125, bcDATBOLD$+bcFlat$)
 		taste0=AddControl(bcFRMButton,"0",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
-				hoehe-120,260,0,220,100,100, bcDATBOLD$+bcFlat$)
+				hoehe-145,20,0,300,125,125, bcDATBOLD$+bcFlat$)
 		tasteMinus=AddControl(bcFRMButton,"+/-",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
-				hoehe-120,500,0,220,100,100, bcDATBOLD$+bcFlat$)
-		tasteOk=AddControl(bcFRMButton,"OK",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
-				hoehe-240,740,0,240,220,100, bcDATBOLD$+bcFlat$)
+				hoehe-145,680,0,300,125,125, bcDATBOLD$+bcFlat$)
+!Kosten eingeben Frame3
+		zahlenKosten=AddControl(bcFRMFRAME,"Kosten eingeben",bcWHITE,bcBLUE,0,bcLGRAY,~
+				200,100,0,800,800,70,bcDATBOLD$+bcHIDE$)
+		zahl1=AddControl(bcFRMDISPLAY,"Saatgut",bcLGRAY,bcWHITE,bcBLACK,bcWHITE,~
+				350,150,200,540,125,100, bcDATBOLD$+bcAlignDatRight$)
+		zahl2=AddControl(bcFRMDISPLAY,"Arbeit",bcLGRAY,bcWHITE,bcBLACK,bcWHITE,~
+				500,150,200,540,125,100, bcDATBOLD$+bcAlignDatRight$)
+		zahl3=AddControl(bcFRMDISPLAY,"Festkosten",bcLGRAY,bcWHITE,bcBLACK,bcWHITE,~
+				650,150,200,540,125,100, bcDATBOLD$+bcAlignDatRight$)
+		tasteBack1=AddControl(bcFRMButton,"<-",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
+				350,700,0,150,125,100, bcDATBOLD$+bcFlat$)
+		tasteBack2=AddControl(bcFRMButton,"<-",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
+				500,700,0,150,125,100, bcDATBOLD$+bcFlat$+bcHIDE$)
+		tasteBack3=AddControl(bcFRMButton,"<-",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
+				650,700,0,150,125,100, bcDATBOLD$+bcFlat$+bcHIDE$)
+		tasteAbbr2=AddControl(bcFRMButton,"Abbr.",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
+				800,150,0,340,125,125, bcDATBOLD$+bcFlat$)
+		tasteOk2=AddControl(bcFRMButton,"OK",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
+				800,560,0,290,125,125, bcDATBOLD$+bcFlat$)
 return
 
 weiter6:
 
-FN.DEF ModCtrlZahl(form, pm, km)
-	FN.IMPORT zahlenInput, zahl, taste1, taste2, taste3, taste4, taste5, taste6, taste7, taste8, taste9, taste0, tasteKomma, tasteBack, tasteMinus, tasteAbbr, tasteOk 
+
+FN.DEF ModCtrlKosten(form, pm, km)
+	FN.IMPORT aktionInfo$[], kosten$[], zahlenInput, zahlenKosten, zahl1, zahl2, zahl3, taste1, taste2, taste3, taste4, taste5, taste6, taste7, taste8, taste9, taste0, tasteKomma, tasteBack1, tasteBack2, tasteBack3, tasteMinus, tasteAbbr2, tasteOk2 
 	tmpZahl$ = ""
 	ShowCtrl(zahlenInput, 1)
+	ShowCtrl(zahlenKosten, 1)
+    ModCtrlData(zahl1, kosten$[1], 1)
+    ModCtrlData(zahl2, kosten$[2], 1)
+    ModCtrlData(zahl3, kosten$[3], 1)
+	tmpZ = zahl1
+	
+    WHILE 0 = 0
+        selCtrl=TouchCheck(0, taste1, tasteOk2)
+        SW.BEGIN selCtrl
+        SW.CASE zahl1
+            tmpZ = selCtrl
+            ctrlVisible(tasteBack1,1,1)
+            ctrlVisible(tasteBack2,0,1)
+            ctrlVisible(tasteBack3,0,1)
+            SW.BREAK
+        SW.CASE zahl2
+            tmpZ = selCtrl
+            ctrlVisible(tasteBack1,0,1)
+            ctrlVisible(tasteBack2,1,1)
+            ctrlVisible(tasteBack3,0,1)
+            SW.BREAK
+        SW.CASE zahl3
+            tmpZ = selCtrl
+            ctrlVisible(tasteBack1,0,1)
+            ctrlVisible(tasteBack2,0,1)
+            ctrlVisible(tasteBack3,1,1)
+            SW.BREAK
+        SW.CASE taste1
+			ModCtrlData(tmpZ, GetCtrlData$(tmpZ) + "1", 0)
+            SW.BREAK
+        SW.CASE taste2
+			ModCtrlData(tmpZ, GetCtrlData$(tmpZ) + "2", 0)
+            SW.BREAK
+        SW.CASE taste3
+			ModCtrlData(tmpZ, GetCtrlData$(tmpZ) + "3", 0)
+            SW.BREAK
+        SW.CASE taste4
+			ModCtrlData(tmpZ, GetCtrlData$(tmpZ) + "4", 0)
+            SW.BREAK
+        SW.CASE taste5
+			ModCtrlData(tmpZ, GetCtrlData$(tmpZ) + "5", 0)
+            SW.BREAK
+        SW.CASE taste6
+			ModCtrlData(tmpZ, GetCtrlData$(tmpZ) + "6", 0)
+            SW.BREAK
+        SW.CASE taste7
+			ModCtrlData(tmpZ, GetCtrlData$(tmpZ) + "7", 0)
+            SW.BREAK
+        SW.CASE taste8
+			ModCtrlData(tmpZ, GetCtrlData$(tmpZ) + "8", 0)
+            SW.BREAK
+        SW.CASE taste9
+			ModCtrlData(tmpZ, GetCtrlData$(tmpZ) + "9", 0)
+            SW.BREAK
+        SW.CASE taste0
+			ModCtrlData(tmpZ, GetCtrlData$(tmpZ) + "0", 0)
+            SW.BREAK
+        SW.CASE tasteKomma
+			if (is_in(".", GetCtrlData$(tmpZ)) = 0) then
+				ModCtrlData(tmpZ, GetCtrlData$(tmpZ) + ".", 0)
+			endif
+            SW.BREAK
+        SW.CASE tasteBack1
+			ModCtrlData(zahl1, LEFT$(GetCtrlData$(zahl1), -1), 0)
+            SW.BREAK
+        SW.CASE tasteBack2
+			ModCtrlData(zahl2, LEFT$(GetCtrlData$(zahl2), -1), 0)
+            SW.BREAK
+        SW.CASE tasteBack3
+			ModCtrlData(zahl3, LEFT$(GetCtrlData$(zahl3), -1), 0)
+            SW.BREAK
+        SW.CASE tasteOk2
+			kosten$[1]= GetCtrlData$(zahl1)
+			kosten$[2]= GetCtrlData$(zahl2)
+			kosten$[3]= GetCtrlData$(zahl3)
+			aktionInfo$[5] = kosten$[1]+";"+kosten$[2]+";"+kosten$[3]
+			ModCtrlData(form, STR$(VAL(kosten$[1]) + VAL(kosten$[2]) + VAL(kosten$[3])) + " €", 1)
+            W_R.break
+        SW.CASE tasteAbbr2
+            W_R.break
+        SW.END
+
+		!Zahl schöner machen
+		tmpZahl$ = LTRIM$(GetCtrlData$(tmpZ), "0")
+		if (tmpZahl$ = "")
+			ModCtrlData(tmpZ, "0", 1)
+		elseif (tmpZahl$ = ".")
+			ModCtrlData(tmpZ, "0.", 1)
+		elseif(left$(tmpZahl$, 1) = ".") then
+			ModCtrlData(tmpZ, "0" + tmpZahl$, 1)
+		elseif(tmpZahl$ = "-") then
+			ModCtrlData(tmpZ, "-0", 1)
+		elseif(left$(tmpZahl$, 2) = "-.") then
+			ModCtrlData(tmpZ, "-0," + tmpZahl$, 1)
+        else
+			ModCtrlData(tmpZ, tmpZahl$, 1)
+        endif
+    REPEAT
+	HideCtrl(zahlenInput, 1)
+	HideCtrl(zahlenKosten, 1)
+FN.END
+
+FN.DEF ModCtrlZahl(form, pm, km)
+	FN.IMPORT zahlenInput, zahlenFeld, zahl, taste1, taste2, taste3, taste4, taste5, taste6, taste7, taste8, taste9, taste0, tasteKomma, tasteBack, tasteMinus, tasteAbbr, tasteOk 
+	tmpZahl$ = ""
+	ShowCtrl(zahlenInput, 1)
+	ShowCtrl(zahlenFeld, 1)
     ModCtrlData(zahl, REPLACE$(GetCtrlData$(form), ",", "."), 1)
 	
     WHILE 0 = 0
-        selCtrl=TouchCheck(0, taste1, tasteOk)
+        selCtrl=TouchCheck(0, zahl, tasteMinus)
         SW.BEGIN selCtrl
         SW.CASE taste1
 			ModCtrlData(zahl, GetCtrlData$(zahl) + "1", 0)
@@ -171,5 +301,6 @@ FN.DEF ModCtrlZahl(form, pm, km)
         endif
     REPEAT
 	HideCtrl(zahlenInput, 1)
+	HideCtrl(zahlenFeld, 1)
 FN.END
 
