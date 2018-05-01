@@ -102,7 +102,13 @@ FN.DEF laskDb_aktionenLaden$(feld$)
         if (last = 0) then
             !Datum formatieren
             columns$[4] = MID$(columns$[4], 9, 2) + "." + MID$(columns$[4], 6, 2) + "." + MID$(columns$[4], 1, 4)
-            aktionen$ = aktionen$ + bcRECBREAK$ + columns$[1] + bcCOLBREAK$ +  columns$[4] + bcCOLBREAK$ + columns$[3]
+            if (columns$[3] = "Saat") then
+				aktionen$ = aktionen$ + bcRECBREAK$ + columns$[1] + bcCOLBREAK$ +  columns$[4] + bcCOLBREAK$ + columns$[3]+" ("+columns$[7]+")"
+			elseif (columns$[3] = "Bodenbearbeitung") then
+				aktionen$ = aktionen$ + bcRECBREAK$ + columns$[1] + bcCOLBREAK$ +  columns$[4] + bcCOLBREAK$ + columns$[3]+" ("+columns$[6]+")"
+			else
+				aktionen$ = aktionen$ + bcRECBREAK$ + columns$[1] + bcCOLBREAK$ +  columns$[4] + bcCOLBREAK$ + columns$[3]
+			endif
         endif
     REPEAT
     FN.RTN aktionen$
