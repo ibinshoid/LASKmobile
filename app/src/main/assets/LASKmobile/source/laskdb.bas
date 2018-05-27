@@ -95,7 +95,7 @@ FN.DEF laskDb_aktionenLaden$(feld$)
     last = 0
     datum$ = ""
     !Alle Aktionen zum Feld in aktionen$ schreiben
-    SQL.Raw_query dbQuery, db, "select * from '" + int$(ernteJahr) + "' where feld = '" + feld$ + "' order by 'datum';"
+    SQL.Raw_query dbQuery, db, "select * from '" + int$(ernteJahr) + "' where feld = '" + feld$ + "' order by datum;"
     WHILE last = 0
         SQL.Next last, dbQuery, columns$[]
         !Verhindert dass letzter Eintrag doppelt ist
