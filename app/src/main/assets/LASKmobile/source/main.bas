@@ -5,6 +5,7 @@ if (fi = 0) then
 endif
 
     ernteJahr = 0
+	picPath$ = "../data/"
 DIM aktionInfo$[20]
 DIM feldInfo$[20]
 DIM aktAktion$[20]
@@ -51,7 +52,6 @@ weiter10:
     CALL InitGraphics(bcOPAQUE,bcLGRAY,bcPORTRAIT,bcHIDESTATUSBAR,"")
     gr.screen width, height
     hoehe = 1000/width * height
-!    CALL SetScalingFactor(1000,1000/width*height,&DateSize,&FrmScale,&MsgBoxFontSize)
     CALL SetScalingFactor(1000,1000/width*height,&DateSize,&FrmScale,&MsgBoxFontSize)
 	SetCalColours(bcCYAN,bcLBLUE,bcWHITE,bcBLACK,bcLGRAY,bcBLACK,bcWHITE, ~
 		bcWHITE,bcLGRAY,bcBLACK,bcYELLOW,bcBLACK,bcLGRAY)

@@ -29,9 +29,9 @@ This file is part of BASIC! for Android
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.rfo.basic"
+    package="com.rfo.LASKmobile"
     android:versionCode="0500"
-    android:versionName="0.5.1"
+    android:versionName="0.6.0"
     android:installLocation="auto"
     tools:ignore="UnusedAttribute"> <!-- installLocation not available in API 7 -->
 

@@ -14,7 +14,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.rfo.basic"
+        applicationId "com.rfo.LASKmobile"
         minSdkVersion 7
         targetSdkVersion 16
     }

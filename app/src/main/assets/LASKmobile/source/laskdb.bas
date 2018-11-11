@@ -1,18 +1,27 @@
 SQL.OPEN db, "lask.db"
-SQL.exec db, "CREATE TABLE IF NOT EXISTS 'protokoll' (id INTEGER PRIMARY KEY AUTOINCREMENT," ~
-                                                    +"jahr INTEGER," ~
-                                                    +"feldid INTEGER," ~
-                                                    +"feldname TEXT," ~
-                                                    +"aktionid INTEGER," ~
-                                                    +"aktionname TEXT," ~
-                                                    +"was INTEGER," ~
-                                                    +"kommentar TEXT," ~
-                                                    +"anwender TEXT)"
+
+!Protokoll Tabelle anlegen
+	SQL.exec db, "CREATE TABLE IF NOT EXISTS 'protokoll' (id INTEGER PRIMARY KEY AUTOINCREMENT," ~
+														+"jahr INTEGER," ~
+														+"feldid INTEGER," ~
+														+"feldname TEXT," ~
+														+"aktionid INTEGER," ~
+														+"aktionname TEXT," ~
+														+"was INTEGER," ~
+														+"kommentar TEXT," ~
+														+"anwender TEXT)"
+                                                    
+!Betriebsdaten laden
+    SQL.Raw_query dbQuery, db, "select * from 'feldjahr' where jahr = '0';"
+    SQL.Next last, dbQuery, columns$[]
+	betriebName$ = columns$[3]
+	betriebAdresse$ = columns$[4]
+	betriebNummer$ = "0" + columns$[5]
+                                                    
 
 !Mittel in Arrays schreiben
     i = 0
     length = 0
-    
 
     SQL.Raw_query dbQuery, db, "SELECT * FROM 'mittel';"
     Sql.Query.Length length, dbQuery

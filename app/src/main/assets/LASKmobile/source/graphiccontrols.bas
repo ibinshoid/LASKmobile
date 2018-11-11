@@ -3437,7 +3437,7 @@ FN.DEF @RedrawListBoxRows(pctrlno,presetstart)
     LET i$=PicPath$+bmpname$
     FILE.EXISTS i,i$
     IF i=0 THEN
-     LET i$="CARTMAN.png"
+     LET i$="GC-Information.png"
     ENDIF
     LET j=rowheight-12
     GR.BITMAP.LOAD bmpsrc,i$
@@ -5244,7 +5244,7 @@ FN.DEF @drawmsgbox()
  GR.TEXT.DRAW grobj[27],x+(4*u)+((3*u)/2),bt+fo,"No"
  GR.TEXT.DRAW grobj[32],x+(7*u)+2*s+((3*u)/2),bt+fo,"Cancel"
  LET ps=2*(u*0.9)
- GR.BITMAP.LOAD pbmobj,"cartman.png"
+ GR.BITMAP.LOAD pbmobj,"GC-Information.png"
  GR.BITMAP.SCALE msgiconscaled,pbmobj,ps+100,ps+100
  CALL @AddToBmpList("Msg",1,msgiconscaled)
  GR.BITMAP.DELETE pbmobj
