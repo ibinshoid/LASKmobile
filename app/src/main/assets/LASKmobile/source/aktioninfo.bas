@@ -1,11 +1,12 @@
 goto weiter6
+
 aktionInfoTmp:
 !Form öffnen
-    CALL StartNewForm(DateSize,bcSOUNDOFF$,FrmScale,MsgBoxFontSize,bcLGRAY)
+    CALL StartNewForm(DateSize,bcSOUNDOFF$,FrmScale,MsgBoxFontSize,bcLBLUE)
     LET form$ = "aktionInfo"
 !Überschrift
-    fraTemp = AddControl(bcFRMFRAME, feld$[2] + "->" + aktionInfo$[3], bcWHITE, bcBLUE, bcRED, bcLBLUE, ~
-            0,0,0,1000,1000/width*height,70, bcCTRLCENTRE$+bcCAPBOLD$+bcALIGNCENTRE$)
+    fraTemp = AddControl(bcFRMFRAME, betriebName$ + " -> " + int$(ernteJahr) + " -> " +feld$[2] + " -> " + aktionInfo$[3] + "   ", bcWHITE, bcBLUE, bcRED, bcLBLUE, ~
+            0, 0, 0, 1000, 100, 80, bcCAPBOLD$+bcALIGNRIGHT$)
 !Zurück Knopf oben links
     zurKnopf = AddControl(bcFRMBUTTON, "GC-Back.png",bcBLACK,bcLGRAY,0,0, ~
             0,0,0,100,100,50, bcGRAPHIC$)
@@ -84,19 +85,31 @@ aktionInfoTmp:
 				hoehe-145,680,0,300,125,125, bcDATBOLD$+bcFlat$)
 !Kosten eingeben Frame3
 		zahlenKosten=AddControl(bcFRMFRAME,"Kosten eingeben",bcWHITE,bcBLUE,0,bcLGRAY,~
-				200,100,0,800,800,70,bcDATBOLD$+bcHIDE$)
-		zahl1=AddControl(bcFRMDISPLAY,"Saatgut",bcLGRAY,bcWHITE,bcBLACK,bcWHITE,~
-				350,150,200,540,125,100, bcDATBOLD$+bcAlignDatRight$)
-		zahl2=AddControl(bcFRMDISPLAY,"Arbeit",bcLGRAY,bcWHITE,bcBLACK,bcWHITE,~
-				500,150,200,540,125,100, bcDATBOLD$+bcAlignDatRight$)
-		zahl3=AddControl(bcFRMDISPLAY,"Festkosten",bcLGRAY,bcWHITE,bcBLACK,bcWHITE,~
-				650,150,200,540,125,100, bcDATBOLD$+bcAlignDatRight$)
+				200,50,0,900,800,70,bcDATBOLD$+bcHIDE$)
+		name1=AddControl(bcFRMDISPLAY,"Saatgut:",bcBlack, bcLGRAY,bcBLACK,bcWHITE,~
+				340,100,300,300,70,70, bcDATBOLD$+bcAlignDatRight$+bcNOBORDER$)
+		name12=AddControl(bcFRMDISPLAY,"(€/kg)",bcBlack, bcLGRAY,bcBLACK,bcWHITE,~
+				420,100,300,300,50,50, bcDATBOLD$+bcAlignDatRight$+bcNOBORDER$)
+		zahl1=AddControl(bcFRMDISPLAY,"",bcBlack,bcLGRAY,bcBLACK,bcWHITE,~
+				350,400,0,400,125,100, bcDATBOLD$+bcAlignDatRight$)
+		name2=AddControl(bcFRMDISPLAY,"Arbeit:",bcBlack,bcLGRAY,bcBLACK,bcWHITE,~
+				490,100,300,300,70,70, bcDATBOLD$+bcAlignDatRight$+bcNOBORDER$)
+		name22=AddControl(bcFRMDISPLAY,"(€/ha)",bcBlack,bcLGRAY,bcBLACK,bcWHITE,~
+				570,100,300,300,50,50, bcDATBOLD$+bcAlignDatRight$+bcNOBORDER$)
+		zahl2=AddControl(bcFRMDISPLAY,"",bcLGRAY,bcWHITE,bcBLACK,bcWHITE,~
+				500,400,0,400,125,100, bcDATBOLD$+bcAlignDatRight$)
+		name3=AddControl(bcFRMDISPLAY,"Festk.:",bcBlack,bcLGRAY,bcBLACK,bcWHITE,~
+				640,100,300,300,70,70, bcDATBOLD$+bcAlignDatRight$+bcNOBORDER$)
+		name32=AddControl(bcFRMDISPLAY,"(€)",bcBlack,bcLGRAY,bcBLACK,bcWHITE,~
+				720,100,300,300,50,50, bcDATBOLD$+bcAlignDatRight$+bcNOBORDER$)
+		zahl3=AddControl(bcFRMDISPLAY,"",bcLGRAY,bcWHITE,bcBLACK,bcWHITE,~
+				650,400,0,400,125,100, bcDATBOLD$+bcAlignDatRight$)
 		tasteBack1=AddControl(bcFRMButton,"<-",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
-				350,700,0,150,125,100, bcDATBOLD$+bcFlat$)
+				350,810,0,130,125,100, bcDATBOLD$+bcFlat$)
 		tasteBack2=AddControl(bcFRMButton,"<-",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
-				500,700,0,150,125,100, bcDATBOLD$+bcFlat$+bcHIDE$)
+				500,810,0,130,125,100, bcDATBOLD$+bcFlat$+bcHIDE$)
 		tasteBack3=AddControl(bcFRMButton,"<-",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
-				650,700,0,150,125,100, bcDATBOLD$+bcFlat$+bcHIDE$)
+				650,810,0,130,125,100, bcDATBOLD$+bcFlat$+bcHIDE$)
 		tasteAbbr2=AddControl(bcFRMButton,"Abbr.",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
 				800,150,0,340,125,125, bcDATBOLD$+bcFlat$)
 		tasteOk2=AddControl(bcFRMButton,"OK",bcWHITE,bcGRAY,bcBLACK,bcWHITE,~
@@ -114,10 +127,14 @@ FN.DEF ModCtrlKosten(form, pm, km)
     ModCtrlData(zahl1, kosten$[1], 1)
     ModCtrlData(zahl2, kosten$[2], 1)
     ModCtrlData(zahl3, kosten$[3], 1)
+	!Erstes Eingabefeld aktivieren und Kurser malen
 	tmpZ = zahl1
+	ModCtrlData(tmpZ, GetCtrlData$(tmpZ) + "|", 1)
 	
     WHILE 0 = 0
         selCtrl=TouchCheck(0, taste1, tasteOk2)
+		!Kurser zur Verarbeitung wegmalen
+		ModCtrlData(tmpZ, LEFT$(GetCtrlData$(tmpZ), -1), 0)
         SW.BEGIN selCtrl
         SW.CASE zahl1
             tmpZ = selCtrl
@@ -189,23 +206,27 @@ FN.DEF ModCtrlKosten(form, pm, km)
 			ModCtrlData(form, STR$(VAL(kosten$[1]) + VAL(kosten$[2]) + VAL(kosten$[3])) + " €", 1)
             W_R.break
         SW.CASE tasteAbbr2
+            tmpZ = zahl1
+            ctrlVisible(tasteBack1,1,1)
+            ctrlVisible(tasteBack2,0,1)
+            ctrlVisible(tasteBack3,0,1)
             W_R.break
         SW.END
 
 		!Zahl schöner machen
 		tmpZahl$ = LTRIM$(GetCtrlData$(tmpZ), "0")
 		if (tmpZahl$ = "")
-			ModCtrlData(tmpZ, "0", 1)
+			ModCtrlData(tmpZ, "0|", 1)
 		elseif (tmpZahl$ = ".")
-			ModCtrlData(tmpZ, "0.", 1)
+			ModCtrlData(tmpZ, "0.|", 1)
 		elseif(left$(tmpZahl$, 1) = ".") then
-			ModCtrlData(tmpZ, "0" + tmpZahl$, 1)
+			ModCtrlData(tmpZ, "0" + tmpZahl$ + "|", 1)
 		elseif(tmpZahl$ = "-") then
-			ModCtrlData(tmpZ, "-0", 1)
+			ModCtrlData(tmpZ, "-0|", 1)
 		elseif(left$(tmpZahl$, 2) = "-.") then
-			ModCtrlData(tmpZ, "-0," + tmpZahl$, 1)
+			ModCtrlData(tmpZ, "-0," + tmpZahl$ + "|", 1)
         else
-			ModCtrlData(tmpZ, tmpZahl$, 1)
+			ModCtrlData(tmpZ, tmpZahl$ + "|", 1)
         endif
     REPEAT
 	HideCtrl(zahlenInput, 1)
@@ -217,10 +238,12 @@ FN.DEF ModCtrlZahl(form, pm, km)
 	tmpZahl$ = ""
 	ShowCtrl(zahlenInput, 1)
 	ShowCtrl(zahlenFeld, 1)
-    ModCtrlData(zahl, REPLACE$(GetCtrlData$(form), ",", "."), 1)
+    ModCtrlData(zahl, REPLACE$(GetCtrlData$(form), ",", ".") + "|", 1)
 	
     WHILE 0 = 0
         selCtrl=TouchCheck(0, zahl, tasteMinus)
+		!Kurser zur Verarbeitung wegmalen
+		ModCtrlData(zahl, LEFT$(GetCtrlData$(zahl), -1), 0)
         SW.BEGIN selCtrl
         SW.CASE taste1
 			ModCtrlData(zahl, GetCtrlData$(zahl) + "1", 0)
@@ -279,17 +302,17 @@ FN.DEF ModCtrlZahl(form, pm, km)
 		!Zahl schöner machen
 		tmpZahl$ = LTRIM$(GetCtrlData$(zahl), "0")
 		if (tmpZahl$ = "")
-			ModCtrlData(zahl, "0", 1)
+			ModCtrlData(zahl, "0|", 1)
 		elseif (tmpZahl$ = ".")
-			ModCtrlData(zahl, "0.", 1)
+			ModCtrlData(zahl, "0.|", 1)
 		elseif(left$(tmpZahl$, 1) = ".") then
-			ModCtrlData(zahl, "0" + tmpZahl$, 1)
+			ModCtrlData(zahl, "0" + tmpZahl$ + "|", 1)
 		elseif(tmpZahl$ = "-") then
-			ModCtrlData(zahl, "-0", 1)
+			ModCtrlData(zahl, "-0|", 1)
 		elseif(left$(tmpZahl$, 2) = "-.") then
-			ModCtrlData(zahl, "-0," + tmpZahl$, 1)
+			ModCtrlData(zahl, "-0," + tmpZahl$ + "|", 1)
         else
-			ModCtrlData(zahl, tmpZahl$, 1)
+			ModCtrlData(zahl, tmpZahl$ + "|", 1)
         endif
         !Darf negativ sein?
         if (pm = 0) then

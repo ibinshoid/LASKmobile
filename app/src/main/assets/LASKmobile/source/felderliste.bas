@@ -2,13 +2,11 @@ goto weiter
 
 felderListe:
 !Form öffnen
-!    CALL StartNewForm(DateSize,bcSOUNDOFF$,FrmScale,MsgBoxFontSize,bcLBLUE)
     CALL StartNewForm(DateSize,bcSOUNDOFF$,FrmScale,MsgBoxFontSize,bcLBLUE)
     LET form$ = "felderListe"
 !Überschrift
-    ueberschrift = AddControl(bcFRMDISPLAY, "", bcRED, bcLBLUE, bcWHITE, bcBLUE, ~
-            0, 0, 0, 1000, 100, 80, bcDATBOLD$+bcALIGNDATCENTRE$)
-    rc = SetCtrlData(ueberschrift, _$("LASKmobile"))
+    ueberschrift = AddControl(bcFRMFRAME, betriebName$ + " -> " + int$(ernteJahr), bcWHITE, bcBLUE, bcRED, bcLBLUE, ~
+            0, 0, 0, 1000, 100, 80, bcCAPBOLD$+bcALIGNRIGHT$)
 !Felderliste mitte
     felderListe = AddControl(bcFRMLISTBOX,"", bcWHITE,bcLBLUE,bcBLACK,bcWHITE, ~
                 220, 10, 0, 980, hoehe-340, 60, bcDATBOLD$+bcNOHEADBOX$+bcLISTVIEW$)
@@ -37,8 +35,9 @@ felderListe:
     menuKnopf=AddControl(bcFRMBUTTON,"="+bcRECBREAK$+ ~
             _$("Erntejahr")+bcRECBREAK$+ ~
             _$("Einstellungen")+bcRECBREAK$+ ~
+            _$("Info")+bcRECBREAK$+ ~
             _$("Beenden")+bcRECBREAK$, ~
-            bcBLACK,bcLGRAY,bcBLACK,bcCYAN, 0,0,500,100,100,50, bcCAPBOLD$+BS$+bcMENULIST$)
+            bcBLACK,bcLGRAY,bcBLACK,bcCYAN, 0,0,500,100,100,70, BS$+bcMENULIST$)
 !Auswahlfenster Erntejahr
 	jahrWahl=AddControl(bcFRMFRAME,_$("Erntejahr"),bcWHITE,bcBLUE,0,bcLGRAY,~
 				200,200,100,600,600,80,bcDATBOLD$+bcHIDE$+bcFADEBACK$+bcALIGNCENTRE$)
@@ -58,7 +57,7 @@ felderListe:
 				600,300,0,400,100,100, bcDATBOLD$+bcFlat$)
 	
 	
-    CALL DrawForm("",picPath$)
+    CALL DrawForm("","../data/")
     ModCtrlCap(felderListe, laskDb_felderLaden$(_$("Alle")), 1)
 
 !MainLoop
@@ -125,6 +124,10 @@ felderListe:
                 EXIT
             else if (menu$ = _$("Erntejahr")) then
 				ShowCtrl(jahrWahl, 1)	
+            else if (menu$ = _$("Info")) then
+            Dialog.message , "LASKmobile V.07\n" + ~
+							 "Autor: Andreas Strasser\n" + ~
+							 "www.github.com/ibinshoid/LASKmobile", go, "OK"
             endif
             SW.BREAK
         SW.CASE jahrWahlOk

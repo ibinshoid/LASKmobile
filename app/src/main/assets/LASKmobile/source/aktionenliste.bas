@@ -5,9 +5,8 @@ aktionenListe:
     CALL StartNewForm(DateSize,bcSOUNDOFF$,FrmScale,MsgBoxFontSize,bcLBLUE)
     LET form$ = "aktionenListe"
 !Überschrift
-    ueberschrift = AddControl(bcFRMDISPLAY, "", bcRED, bcLBLUE, bcWHITE, bcBLUE, ~
-            0, 0, 0, 1000, 100, 80, bcDATBOLD$+bcALIGNDATCENTRE$)
-    rc = SetCtrlData(ueberschrift, _$("Feld: ") + feld$[2])
+    ueberschrift = AddControl(bcFRMFRAME, betriebName$ + " -> " + int$(ernteJahr) + " -> " +feld$[2] + "   ", bcWHITE, bcBLUE, bcRED, bcLBLUE, ~
+            0, 0, 0, 1000, 100, 80, bcCAPBOLD$+bcALIGNRIGHT$)
 !Aktionenliste mitte
     aktionenListe = AddControl(bcFRMLISTBOX,"",bcWHITE,bcLBLUE,bcBLACK,bcWHITE, ~
                 110, 10, 0, 980, hoehe-230, 60, bcDATBOLD$+bcNOHEADBOX$+bcLISTVIEW$)
@@ -15,6 +14,17 @@ aktionenListe:
                 +"Id"+bcFLDBREAK$+"0"+bcFLDBREAK$+"1"+bcCOLBREAK$ ~
                 +_$("Datum")+bcFLDBREAK$+"340"+bcFLDBREAK$+"2"+bcCOLBREAK$ ~
                 +_$("Aktion")+bcFLDBREAK$+"639"+bcFLDBREAK$+"1"+bcRECBREAK$+" ")
+!Aktion hinzufügen unten rechts
+    aktionHinzu = AddControl(bcFRMCOMBOBOX,"",bcGRAY,bcGRAY,bcBLACK,bcWHITE, ~
+            hoehe - 110, 320, 0, 670, 100, 80, bcALIGNRIGHT$)
+    rc = SetCtrlCap(aktionHinzu,""+ ~
+            bcRECBREAK$+_$("Saat")+ ~
+            bcRECBREAK$+_$("Bodenbearbeitung")+ ~
+            bcRECBREAK$+_$("Pflanzenschutz")+ ~
+            bcRECBREAK$+_$("organische Düngung")+ ~
+            bcRECBREAK$+_$("mineralische Düngung")+ ~
+            bcRECBREAK$+_$("Ernte"))
+    rc = SetCtrlData(aktionHinzu, _$("     Hinzufügen"))
 !Aktion löschen unten links
     entfKnopf = AddControl(bcFRMBUTTON, _$("Entfernen"),bcBLACK,bcLGRAY,0,0, ~
             hoehe-110, 10, 0, 400, 100, 80, bcALIGNRIGHT$)
@@ -53,6 +63,33 @@ aktionenListe:
             endif
             vorher$ = aktion$[1]
             SW.BREAK
+        SW.CASE aktionHinzu
+            aktion$ = GetCtrlData$(aktionHinzu)
+            rc = SetCtrlData(aktionHinzu, _$("     Hinzufügen"))
+			gosub aktionBauen
+			aktionInfo$[2] = feld$[1]
+            aktionInfo$[17] = feldInfo$[5]
+            if (aktion$ = _$("Saat")) then
+				aktionInfo$[3] = "Saat"
+				goto aktionInfo_saat
+            elseif (aktion$ = _$("Bodenbearbeitung")) then
+				aktionInfo$[3] = "Bodenbearbeitung"
+				goto aktionInfo_bodenbearbeitung
+            elseif (aktion$ = _$("Pflanzenschutz")) then
+				aktionInfo$[3] = "Pflanzenschutz"
+				goto aktionInfo_psm
+            elseif (aktion$ = _$("organische Düngung")) then
+				aktionInfo$[3] = "Organische Düngung"
+				goto aktionInfo_duengung
+            elseif (aktion$ = _$("mineralische Düngung")) then
+				aktionInfo$[3] = "Mineralische Düngung"
+				goto aktionInfo_duengung
+            elseif (aktion$ = _$("Ernte")) then
+				aktionInfo$[3] = "Ernte"
+				goto aktionInfo_ernte
+            endif
+            popup aktion$
+            ModCtrlData(aktionHinzu, _$("     Hinzufügen"), 1)
         SW.CASE zurKnopf
             goto felderListe
         SW.CASE entfKnopf

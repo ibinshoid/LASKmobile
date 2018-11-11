@@ -109,7 +109,8 @@ gosub aktionInfoTmp
             ModCtrlZahl(dungC, 0, 0)
             SW.BREAK
         SW.CASE kosten
-			ModCtrlCap(zahl1, "Dünger", 0)
+			ModCtrlCap(name1, "Dünger", 0)
+            ModCtrlCap(name12,"(€/" + aktionInfo$[7] + ")", 0)
             ModCtrlKosten(kosten, 0, 1)
             W_R.continue
         SW.CASE flaeche

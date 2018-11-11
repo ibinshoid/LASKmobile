@@ -103,7 +103,12 @@ gosub aktionInfoTmp
 				goto aktionInfo_saat
 			endif
         SW.CASE kosten
-			ModCtrlData(zahl1, "Saatgut", 0)
+			ModCtrlCap(name1, "Saatgut", 0)
+            if (GetCtrlData$(einheit) = "kg/ha") then
+				ModCtrlCap(name12, "(€/kg)", 0)
+            else
+				ModCtrlCap(name12, "(€/10000Kö.)", 0)
+            endif
             ModCtrlKosten(kosten, 0, 1)
             W_R.continue
         SW.CASE flaeche

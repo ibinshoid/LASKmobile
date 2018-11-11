@@ -40,6 +40,8 @@ gosub aktionInfoTmp
 			endif
         SW.CASE kosten
 			HideCtrl(zahl1, 0)
+			HideCtrl(name1, 0)
+			HideCtrl(name12, 0)
 			HideCtrl(tasteBack1, 0)
             ModCtrlKosten(kosten, 0, 1)
             W_R.continue

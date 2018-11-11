@@ -119,7 +119,8 @@ gosub aktionInfoTmp
         SW.CASE zurKnopf
             goto aktionenListe
         SW.CASE kosten
-			ModCtrlCap(zahl1, "Mittel", 0)
+			ModCtrlCap(name1, "Mittel", 0)
+			ModCtrlCap(name12, "(€/ha)", 0)
             ModCtrlKosten(kosten, 0, 1)
             W_R.continue
         SW.CASE flaeche
